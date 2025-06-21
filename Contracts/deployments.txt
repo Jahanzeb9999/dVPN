@@ -1,0 +1,1364 @@
+Compiling 1 files with Solc 0.8.22
+Solc 0.8.22 finished in 2.87s
+Compiler run successful with warnings:
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> script/DeployContracts.s.sol:411:9:
+    |
+411 |         address operatorAddr,
+    |         ^^^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> script/DeployContracts.s.sol:412:9:
+    |
+412 |         address operator2,
+    |         ^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> script/DeployContracts.s.sol:413:9:
+    |
+413 |         address operator3
+    |         ^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> script/DeployContracts.s.sol:429:9:
+    |
+429 |         address ownerAddr,
+    |         ^^^^^^^^^^^^^^^^^
+
+Warning (2018): Function state mutability can be restricted to pure
+   --> src/DelegationHub.sol:217:5:
+    |
+217 |     function proxiableUUID() external view override returns (bytes32) {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+   --> script/DeployContracts.s.sol:463:5:
+    |
+463 |     function logDeployment(
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Traces:
+  [18948100] DeployContracts::run()
+    ├─ [0] VM::envUint("PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    ├─ [0] VM::envUint("OWNER_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    ├─ [0] VM::envUint("OPERATOR_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6
+    ├─ [0] VM::envUint("OPERATOR2_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xCE275FBE87650d8806d131078e6bB07CEE77a917
+    ├─ [0] VM::envUint("OPERATOR3_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x5f1Fa64d762c9978167BA1BD3fC460d2561a1074
+    ├─ [0] VM::envUint("PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return] 
+    ├─ [1496314] → new MawariToken@0x17f7c0Ff1E1aa1A03D996875C7988324E3630EaC
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 7356 bytes of code
+    ├─ [251551] → new ERC1967Proxy@0xbA7E256297e14C059a7BdbbFB2d0A57692632988
+    │   ├─ emit Upgraded(implementation: MawariToken: [0x17f7c0Ff1E1aa1A03D996875C7988324E3630EaC])
+    │   ├─ [191361] MawariToken::initialize("Mawari Token", "MAWARI", 1000000000000 [1e12], 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f) [delegatecall]
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f)
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, value: 1000000000000 [1e12])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 170 bytes of code
+    ├─ [2003271] → new LicenseNFT@0x1A27021E82BA5f0457440F84f52e02eB446E27f9
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 9888 bytes of code
+    ├─ [0] console::log("License NFT Implementation deployed at:", LicenseNFT: [0x1A27021E82BA5f0457440F84f52e02eB446E27f9]) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [2616766] → new DelegationHub@0x7F52bE2c42f9438FB38c66662A1c8Dca1EB3Ad79
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 12952 bytes of code
+    ├─ [2852664] → new Registry@0x283D459153c27d3B6a2b053CE3322FDe478a0e39
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 14130 bytes of code
+    ├─ [2256162] → new Treasury@0x116FAd2AeCfBcE421cE5B28032CEf473C59C364b
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 11151 bytes of code
+    ├─ [180523] → new ERC1967Proxy@0x33674C3C76463E4Ea7400f849d3Ec10587a4f197
+    │   ├─ emit Upgraded(implementation: LicenseNFT: [0x1A27021E82BA5f0457440F84f52e02eB446E27f9])
+    │   ├─ [120187] LicenseNFT::initialize("Mawari License", "LICENSE", 100000000000000000 [1e17], "") [delegatecall]
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f)
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 170 bytes of code
+    ├─ [0] console::log("License NFT Proxy deployed at:", ERC1967Proxy: [0x33674C3C76463E4Ea7400f849d3Ec10587a4f197]) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [132889] → new ERC1967Proxy@0x4345e015FA64138E25355FE5c05b7c452012f014
+    │   ├─ emit Upgraded(implementation: DelegationHub: [0x7F52bE2c42f9438FB38c66662A1c8Dca1EB3Ad79])
+    │   ├─ [73577] DelegationHub::initialize(ERC1967Proxy: [0x33674C3C76463E4Ea7400f849d3Ec10587a4f197], 100) [delegatecall]
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f)
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 170 bytes of code
+    ├─ [500935] → new ERC1967Proxy@0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49
+    │   ├─ emit Upgraded(implementation: Treasury: [0x116FAd2AeCfBcE421cE5B28032CEf473C59C364b])
+    │   ├─ [438104] Treasury::initialize(ERC1967Proxy: [0xbA7E256297e14C059a7BdbbFB2d0A57692632988], ERC1967Proxy: [0xbA7E256297e14C059a7BdbbFB2d0A57692632988], [UnlockOption({ id: 1, name: "Standard Unlock", description: "Standard operator rewards unlock", cliffSeconds: 0, conversionRatePercentage: 100 }), UnlockOption({ id: 2, name: "Delayed Unlock", description: "Delayed operator rewards with cliff", cliffSeconds: 86400 [8.64e4], conversionRatePercentage: 100 })], 0x0000000000000000000000000000000000000000) [delegatecall]
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f)
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 170 bytes of code
+    ├─ [244315] → new ERC1967Proxy@0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747
+    │   ├─ emit Upgraded(implementation: Registry: [0x283D459153c27d3B6a2b053CE3322FDe478a0e39])
+    │   ├─ [184418] Registry::initialize(ERC1967Proxy: [0x4345e015FA64138E25355FE5c05b7c452012f014], ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49], ERC1967Proxy: [0x33674C3C76463E4Ea7400f849d3Ec10587a4f197], 3600, 10000000 [1e7], 24) [delegatecall]
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f)
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 170 bytes of code
+    ├─ [21140] ERC1967Proxy::setRegistryContract(ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747])
+    │   ├─ [20750] Treasury::setRegistryContract(ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747]) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [48925] ERC1967Proxy::approveSourceTokenSpender(ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747])
+    │   ├─ [48535] Treasury::approveSourceTokenSpender(ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747]) [delegatecall]
+    │   │   ├─ [25203] ERC1967Proxy::approve(ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747], 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77])
+    │   │   │   ├─ [24807] MawariToken::approve(ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747], 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77]) [delegatecall]
+    │   │   │   │   ├─ emit Approval(owner: ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49], spender: ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747], value: 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [25578] ERC1967Proxy::transfer(ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49], 500000000000 [5e11])
+    │   ├─ [25182] MawariToken::transfer(ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49], 500000000000 [5e11]) [delegatecall]
+    │   │   ├─ emit Transfer(from: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, to: ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49], value: 500000000000 [5e11])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [5411] ERC1967Proxy::setUnlockOption(1, "Instant Rewards", "Immediate operator rewards", 0, 100, true)
+    │   ├─ [4970] Treasury::setUnlockOption(1, "Instant Rewards", "Immediate operator rewards", 0, 100, true) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [6038] ERC1967Proxy::setUnlockOption(2, "Bonus Rewards", "Delayed rewards with bonus", 86400 [8.64e4], 100, true)
+    │   ├─ [5597] Treasury::setUnlockOption(2, "Bonus Rewards", "Delayed rewards with bonus", 86400 [8.64e4], 100, true) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [1240] ERC1967Proxy::setRegistryContract(ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747])
+    │   ├─ [850] Treasury::setRegistryContract(ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747]) [delegatecall]
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [27207] ERC1967Proxy::transferSourceTokensTo(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 100000000 [1e8])
+    │   ├─ [26814] Treasury::transferSourceTokensTo(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 100000000 [1e8]) [delegatecall]
+    │   │   ├─ [25578] ERC1967Proxy::transfer(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 100000000 [1e8])
+    │   │   │   ├─ [25182] MawariToken::transfer(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 100000000 [1e8]) [delegatecall]
+    │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49], to: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, value: 100000000 [1e8])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return] 
+    ├─ [0] VM::envUint("OPERATOR_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return] 
+    ├─ [161016] ERC1967Proxy::setOperatorConfig(true, "Main Operator", 10)
+    │   ├─ [160605] DelegationHub::setOperatorConfig(true, "Main Operator", 10) [delegatecall]
+    │   │   ├─ emit OperatorConfigured(operator: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, name: "Main Operator", commissionPercentage: 10)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return] 
+    ├─ [0] VM::envUint("OPERATOR2_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return] 
+    ├─ [139116] ERC1967Proxy::setOperatorConfig(true, "Backup Operator", 15)
+    │   ├─ [138705] DelegationHub::setOperatorConfig(true, "Backup Operator", 15) [delegatecall]
+    │   │   ├─ emit OperatorConfigured(operator: 0xCE275FBE87650d8806d131078e6bB07CEE77a917, name: "Backup Operator", commissionPercentage: 15)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return] 
+    ├─ [0] VM::envUint("OPERATOR3_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return] 
+    ├─ [139116] ERC1967Proxy::setOperatorConfig(true, "Standby Operator", 20)
+    │   ├─ [138705] DelegationHub::setOperatorConfig(true, "Standby Operator", 20) [delegatecall]
+    │   │   ├─ emit OperatorConfigured(operator: 0x5f1Fa64d762c9978167BA1BD3fC460d2561a1074, name: "Standby Operator", commissionPercentage: 20)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return] 
+    ├─ [0] VM::envUint("OWNER_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return] 
+    ├─ [103766] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [103379] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 0)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 0)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 1)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 1)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 2)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 2)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 3)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 3)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 4)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 4)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 5)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 5)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 6)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 6)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 7)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 7)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 8)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 8)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 9)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 9)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 10)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 10)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 11)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 11)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 12)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 12)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 13)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 13)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 14)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 14)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 15)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 15)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 16)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 16)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 17)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 17)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 18)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 18)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [117666] ERC1967Proxy::mint{value: 100000000000000000}()
+    │   ├─ [117279] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 19)
+    │   │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 19)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::envUint("OPERATOR2_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xCE275FBE87650d8806d131078e6bB07CEE77a917
+    ├─ [0] VM::envUint("OPERATOR3_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x5f1Fa64d762c9978167BA1BD3fC460d2561a1074
+    ├─ [250160] ERC1967Proxy::delegate(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 1)
+    │   ├─ [249767] DelegationHub::delegate(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 1) [delegatecall]
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(1) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(1) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ emit DelegationCreated(delegation: Delegation({ hash: 0x9ca262c77890c301d0c3918f74dbd81f6c0163387c6e710fa02ce715ba2d5876, to: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, tokenId: 1, commissionPercentage: 10, enabled: true }))
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [228260] ERC1967Proxy::delegate(0xCE275FBE87650d8806d131078e6bB07CEE77a917, 2)
+    │   ├─ [227867] DelegationHub::delegate(0xCE275FBE87650d8806d131078e6bB07CEE77a917, 2) [delegatecall]
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(2) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(2) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ emit DelegationCreated(delegation: Delegation({ hash: 0x28dabbcc3544a70c77f1a5118e9325b2d7dd7584f4e10cc66e60aa102c24d085, to: 0xCE275FBE87650d8806d131078e6bB07CEE77a917, tokenId: 2, commissionPercentage: 15, enabled: true }))
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [228260] ERC1967Proxy::delegate(0x5f1Fa64d762c9978167BA1BD3fC460d2561a1074, 3)
+    │   ├─ [227867] DelegationHub::delegate(0x5f1Fa64d762c9978167BA1BD3fC460d2561a1074, 3) [delegatecall]
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(3) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(3) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ emit DelegationCreated(delegation: Delegation({ hash: 0x8bb472c2873ce3f575611fdcf264387ed6adaadfe756da83a13f09025333e656, to: 0x5f1Fa64d762c9978167BA1BD3fC460d2561a1074, tokenId: 3, commissionPercentage: 20, enabled: true }))
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return] 
+    ├─ [0] VM::envUint("OWNER_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return] 
+    ├─ [0] VM::envUint("OPERATOR_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6
+    ├─ [0] VM::envUint("OPERATOR2_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xCE275FBE87650d8806d131078e6bB07CEE77a917
+    ├─ [251829] ERC1967Proxy::offerDelegation(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 4, 10, true)
+    │   ├─ [251421] DelegationHub::offerDelegation(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 4, 10, true) [delegatecall]
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(4) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(4) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ emit DelegationOfferCreated(offer: DelegationOffer({ hash: 0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a, to: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, from: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 4, commissionPercentage: 10, enabled: true }))
+    │   │   └─ ← [Return] 0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a
+    │   └─ ← [Return] 0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a
+    ├─ [229929] ERC1967Proxy::offerDelegation(0xCE275FBE87650d8806d131078e6bB07CEE77a917, 5, 15, true)
+    │   ├─ [229521] DelegationHub::offerDelegation(0xCE275FBE87650d8806d131078e6bB07CEE77a917, 5, 15, true) [delegatecall]
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(5) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(5) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ emit DelegationOfferCreated(offer: DelegationOffer({ hash: 0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf, to: 0xCE275FBE87650d8806d131078e6bB07CEE77a917, from: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 5, commissionPercentage: 15, enabled: true }))
+    │   │   └─ ← [Return] 0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf
+    │   └─ ← [Return] 0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf
+    ├─ [0] console::log("\n=== Creating Delegation Offers ===") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::toString(0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a) [staticcall]
+    │   └─ ← [Return] "0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a"
+    ├─ [0] console::log("Created delegation offer to main operator, hash:", "0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::toString(0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf) [staticcall]
+    │   └─ ← [Return] "0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf"
+    ├─ [0] console::log("Created delegation offer to backup operator, hash:", "0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return] 
+    ├─ [0] VM::envUint("OPERATOR_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return] 
+    ├─ [0] console::log("\n=== Main Operator Accepting Offer ===") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] console::log("\nVerifying Incoming Delegations for operator:", 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [8651] ERC1967Proxy::getIncomingDelegationOwners(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 0, 10) [staticcall]
+    │   ├─ [8234] DelegationHub::getIncomingDelegationOwners(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 0, 10) [delegatecall]
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(1) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(1) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   └─ ← [Return] [DelegationOwner({ hash: 0x9ca262c77890c301d0c3918f74dbd81f6c0163387c6e710fa02ce715ba2d5876, tokenId: 1, from: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f })]
+    │   └─ ← [Return] [DelegationOwner({ hash: 0x9ca262c77890c301d0c3918f74dbd81f6c0163387c6e710fa02ce715ba2d5876, tokenId: 1, from: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f })]
+    ├─ [0] console::log("Total incoming delegations:", 1) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::toString(0x9ca262c77890c301d0c3918f74dbd81f6c0163387c6e710fa02ce715ba2d5876) [staticcall]
+    │   └─ ← [Return] "0x9ca262c77890c301d0c3918f74dbd81f6c0163387c6e710fa02ce715ba2d5876"
+    ├─ [0] VM::toString(1) [staticcall]
+    │   └─ ← [Return] "1"
+    ├─ [0] VM::toString(0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f) [staticcall]
+    │   └─ ← [Return] "0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f"
+    ├─ [0] console::log("Token: 1 From: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f Hash: 0x9ca262c77890c301d0c3918f74dbd81f6c0163387c6e710fa02ce715ba2d5876") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [203272] ERC1967Proxy::acceptDelegationOffer(0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a)
+    │   ├─ [202882] DelegationHub::acceptDelegationOffer(0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a) [delegatecall]
+    │   │   ├─ emit DelegationCreated(delegation: Delegation({ hash: 0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a, to: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, tokenId: 4, commissionPercentage: 10, enabled: true }))
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] console::log("Main operator accepted delegation offer for token 4") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [1344] ERC1967Proxy::checkLicenseDelegation(4, 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [staticcall]
+    │   ├─ [948] DelegationHub::checkLicenseDelegation(4, 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [delegatecall]
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [0] console::log("Token 4 delegation status to main operator:", true) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] console::log("\nVerifying Incoming Delegations for operator:", 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [13442] ERC1967Proxy::getIncomingDelegationOwners(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 0, 10) [staticcall]
+    │   ├─ [13007] DelegationHub::getIncomingDelegationOwners(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 0, 10) [delegatecall]
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(1) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(1) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(4) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(4) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   └─ ← [Return] [DelegationOwner({ hash: 0x9ca262c77890c301d0c3918f74dbd81f6c0163387c6e710fa02ce715ba2d5876, tokenId: 1, from: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f }), DelegationOwner({ hash: 0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a, tokenId: 4, from: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f })]
+    │   └─ ← [Return] [DelegationOwner({ hash: 0x9ca262c77890c301d0c3918f74dbd81f6c0163387c6e710fa02ce715ba2d5876, tokenId: 1, from: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f }), DelegationOwner({ hash: 0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a, tokenId: 4, from: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f })]
+    ├─ [0] console::log("Total incoming delegations:", 2) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::toString(0x9ca262c77890c301d0c3918f74dbd81f6c0163387c6e710fa02ce715ba2d5876) [staticcall]
+    │   └─ ← [Return] "0x9ca262c77890c301d0c3918f74dbd81f6c0163387c6e710fa02ce715ba2d5876"
+    ├─ [0] VM::toString(1) [staticcall]
+    │   └─ ← [Return] "1"
+    ├─ [0] VM::toString(0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f) [staticcall]
+    │   └─ ← [Return] "0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f"
+    ├─ [0] console::log("Token: 1 From: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f Hash: 0x9ca262c77890c301d0c3918f74dbd81f6c0163387c6e710fa02ce715ba2d5876") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::toString(0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a) [staticcall]
+    │   └─ ← [Return] "0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a"
+    ├─ [0] VM::toString(4) [staticcall]
+    │   └─ ← [Return] "4"
+    ├─ [0] VM::toString(0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f) [staticcall]
+    │   └─ ← [Return] "0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f"
+    ├─ [0] console::log("Token: 4 From: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f Hash: 0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return] 
+    ├─ [0] VM::envUint("OPERATOR2_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return] 
+    ├─ [0] console::log("\n=== Backup Operator Accepting Offer ===") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] console::log("\nVerifying Incoming Delegations for operator:", 0xCE275FBE87650d8806d131078e6bB07CEE77a917) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [9789] ERC1967Proxy::getIncomingDelegationOwners(0xCE275FBE87650d8806d131078e6bB07CEE77a917, 0, 10) [staticcall]
+    │   ├─ [9372] DelegationHub::getIncomingDelegationOwners(0xCE275FBE87650d8806d131078e6bB07CEE77a917, 0, 10) [delegatecall]
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(2) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(2) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   └─ ← [Return] [DelegationOwner({ hash: 0x28dabbcc3544a70c77f1a5118e9325b2d7dd7584f4e10cc66e60aa102c24d085, tokenId: 2, from: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f })]
+    │   └─ ← [Return] [DelegationOwner({ hash: 0x28dabbcc3544a70c77f1a5118e9325b2d7dd7584f4e10cc66e60aa102c24d085, tokenId: 2, from: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f })]
+    ├─ [0] console::log("Total incoming delegations:", 1) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::toString(0x28dabbcc3544a70c77f1a5118e9325b2d7dd7584f4e10cc66e60aa102c24d085) [staticcall]
+    │   └─ ← [Return] "0x28dabbcc3544a70c77f1a5118e9325b2d7dd7584f4e10cc66e60aa102c24d085"
+    ├─ [0] VM::toString(2) [staticcall]
+    │   └─ ← [Return] "2"
+    ├─ [0] VM::toString(0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f) [staticcall]
+    │   └─ ← [Return] "0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f"
+    ├─ [0] console::log("Token: 2 From: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f Hash: 0x28dabbcc3544a70c77f1a5118e9325b2d7dd7584f4e10cc66e60aa102c24d085") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [203272] ERC1967Proxy::acceptDelegationOffer(0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf)
+    │   ├─ [202882] DelegationHub::acceptDelegationOffer(0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf) [delegatecall]
+    │   │   ├─ emit DelegationCreated(delegation: Delegation({ hash: 0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf, to: 0xCE275FBE87650d8806d131078e6bB07CEE77a917, tokenId: 5, commissionPercentage: 15, enabled: true }))
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] console::log("Backup operator accepted delegation offer for token 5") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [1344] ERC1967Proxy::checkLicenseDelegation(5, 0xCE275FBE87650d8806d131078e6bB07CEE77a917) [staticcall]
+    │   ├─ [948] DelegationHub::checkLicenseDelegation(5, 0xCE275FBE87650d8806d131078e6bB07CEE77a917) [delegatecall]
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [0] console::log("Token 5 delegation status to backup operator:", true) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] console::log("\nVerifying Incoming Delegations for operator:", 0xCE275FBE87650d8806d131078e6bB07CEE77a917) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [14580] ERC1967Proxy::getIncomingDelegationOwners(0xCE275FBE87650d8806d131078e6bB07CEE77a917, 0, 10) [staticcall]
+    │   ├─ [14145] DelegationHub::getIncomingDelegationOwners(0xCE275FBE87650d8806d131078e6bB07CEE77a917, 0, 10) [delegatecall]
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(2) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(2) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(5) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(5) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   └─ ← [Return] [DelegationOwner({ hash: 0x28dabbcc3544a70c77f1a5118e9325b2d7dd7584f4e10cc66e60aa102c24d085, tokenId: 2, from: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f }), DelegationOwner({ hash: 0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf, tokenId: 5, from: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f })]
+    │   └─ ← [Return] [DelegationOwner({ hash: 0x28dabbcc3544a70c77f1a5118e9325b2d7dd7584f4e10cc66e60aa102c24d085, tokenId: 2, from: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f }), DelegationOwner({ hash: 0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf, tokenId: 5, from: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f })]
+    ├─ [0] console::log("Total incoming delegations:", 2) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::toString(0x28dabbcc3544a70c77f1a5118e9325b2d7dd7584f4e10cc66e60aa102c24d085) [staticcall]
+    │   └─ ← [Return] "0x28dabbcc3544a70c77f1a5118e9325b2d7dd7584f4e10cc66e60aa102c24d085"
+    ├─ [0] VM::toString(2) [staticcall]
+    │   └─ ← [Return] "2"
+    ├─ [0] VM::toString(0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f) [staticcall]
+    │   └─ ← [Return] "0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f"
+    ├─ [0] console::log("Token: 2 From: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f Hash: 0x28dabbcc3544a70c77f1a5118e9325b2d7dd7584f4e10cc66e60aa102c24d085") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::toString(0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf) [staticcall]
+    │   └─ ← [Return] "0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf"
+    ├─ [0] VM::toString(5) [staticcall]
+    │   └─ ← [Return] "5"
+    ├─ [0] VM::toString(0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f) [staticcall]
+    │   └─ ← [Return] "0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f"
+    ├─ [0] console::log("Token: 5 From: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f Hash: 0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return] 
+    ├─ [0] VM::envUint("PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return] 
+    ├─ [0] console::log("\n=== Final Delegation State ===") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::envUint("OWNER_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    ├─ [0] console::log("\nVerifying Outgoing Delegations for owner:", 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [11973] ERC1967Proxy::getOutgoingDelegationsCount(0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f) [staticcall]
+    │   ├─ [11580] DelegationHub::getOutgoingDelegationsCount(0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f) [delegatecall]
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(1) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(1) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(2) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(2) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(3) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(3) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(4) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(4) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(5) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(5) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   └─ ← [Return] 5
+    │   └─ ← [Return] 5
+    ├─ [0] console::log("Total outgoing delegations:", 5) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [31325] ERC1967Proxy::getOutgoingDelegations(0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, 0, 5) [staticcall]
+    │   ├─ [30775] DelegationHub::getOutgoingDelegations(0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, 0, 5) [delegatecall]
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(1) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(1) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(2) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(2) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(3) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(3) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(4) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(4) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(5) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(5) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(1) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(1) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(2) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(2) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(3) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(3) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(4) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(4) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   ├─ [1073] ERC1967Proxy::ownerOf(5) [staticcall]
+    │   │   │   ├─ [680] LicenseNFT::ownerOf(5) [delegatecall]
+    │   │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   └─ ← [Return] [Delegation({ hash: 0x9ca262c77890c301d0c3918f74dbd81f6c0163387c6e710fa02ce715ba2d5876, to: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, tokenId: 1, commissionPercentage: 10, enabled: true }), Delegation({ hash: 0x28dabbcc3544a70c77f1a5118e9325b2d7dd7584f4e10cc66e60aa102c24d085, to: 0xCE275FBE87650d8806d131078e6bB07CEE77a917, tokenId: 2, commissionPercentage: 15, enabled: true }), Delegation({ hash: 0x8bb472c2873ce3f575611fdcf264387ed6adaadfe756da83a13f09025333e656, to: 0x5f1Fa64d762c9978167BA1BD3fC460d2561a1074, tokenId: 3, commissionPercentage: 20, enabled: true }), Delegation({ hash: 0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a, to: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, tokenId: 4, commissionPercentage: 10, enabled: true }), Delegation({ hash: 0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf, to: 0xCE275FBE87650d8806d131078e6bB07CEE77a917, tokenId: 5, commissionPercentage: 15, enabled: true })]
+    │   └─ ← [Return] [Delegation({ hash: 0x9ca262c77890c301d0c3918f74dbd81f6c0163387c6e710fa02ce715ba2d5876, to: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, tokenId: 1, commissionPercentage: 10, enabled: true }), Delegation({ hash: 0x28dabbcc3544a70c77f1a5118e9325b2d7dd7584f4e10cc66e60aa102c24d085, to: 0xCE275FBE87650d8806d131078e6bB07CEE77a917, tokenId: 2, commissionPercentage: 15, enabled: true }), Delegation({ hash: 0x8bb472c2873ce3f575611fdcf264387ed6adaadfe756da83a13f09025333e656, to: 0x5f1Fa64d762c9978167BA1BD3fC460d2561a1074, tokenId: 3, commissionPercentage: 20, enabled: true }), Delegation({ hash: 0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a, to: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, tokenId: 4, commissionPercentage: 10, enabled: true }), Delegation({ hash: 0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf, to: 0xCE275FBE87650d8806d131078e6bB07CEE77a917, tokenId: 5, commissionPercentage: 15, enabled: true })]
+    ├─ [0] VM::toString(1) [staticcall]
+    │   └─ ← [Return] "1"
+    ├─ [0] VM::toString(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [staticcall]
+    │   └─ ← [Return] "0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6"
+    ├─ [0] VM::toString(10) [staticcall]
+    │   └─ ← [Return] "10"
+    ├─ [0] console::log("Token: 1 To: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6 Commission: 10 Enabled: true") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::toString(2) [staticcall]
+    │   └─ ← [Return] "2"
+    ├─ [0] VM::toString(0xCE275FBE87650d8806d131078e6bB07CEE77a917) [staticcall]
+    │   └─ ← [Return] "0xCE275FBE87650d8806d131078e6bB07CEE77a917"
+    ├─ [0] VM::toString(15) [staticcall]
+    │   └─ ← [Return] "15"
+    ├─ [0] console::log("Token: 2 To: 0xCE275FBE87650d8806d131078e6bB07CEE77a917 Commission: 15 Enabled: true") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::toString(3) [staticcall]
+    │   └─ ← [Return] "3"
+    ├─ [0] VM::toString(0x5f1Fa64d762c9978167BA1BD3fC460d2561a1074) [staticcall]
+    │   └─ ← [Return] "0x5f1Fa64d762c9978167BA1BD3fC460d2561a1074"
+    ├─ [0] VM::toString(20) [staticcall]
+    │   └─ ← [Return] "20"
+    ├─ [0] console::log("Token: 3 To: 0x5f1Fa64d762c9978167BA1BD3fC460d2561a1074 Commission: 20 Enabled: true") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::toString(4) [staticcall]
+    │   └─ ← [Return] "4"
+    ├─ [0] VM::toString(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [staticcall]
+    │   └─ ← [Return] "0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6"
+    ├─ [0] VM::toString(10) [staticcall]
+    │   └─ ← [Return] "10"
+    ├─ [0] console::log("Token: 4 To: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6 Commission: 10 Enabled: true") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::toString(5) [staticcall]
+    │   └─ ← [Return] "5"
+    ├─ [0] VM::toString(0xCE275FBE87650d8806d131078e6bB07CEE77a917) [staticcall]
+    │   └─ ← [Return] "0xCE275FBE87650d8806d131078e6bB07CEE77a917"
+    ├─ [0] VM::toString(15) [staticcall]
+    │   └─ ← [Return] "15"
+    ├─ [0] console::log("Token: 5 To: 0xCE275FBE87650d8806d131078e6bB07CEE77a917 Commission: 15 Enabled: true") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return] 
+    ├─ [0] VM::envUint("PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return] 
+    ├─ [0] console::log("Registry address:", ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747]) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::recordLogs()
+    │   └─ ← [Return] 
+    ├─ [206294] ERC1967Proxy::postJob(0x54657374207461736b2064617461, "TEST_TYPE", 5000000 [5e6], 1, 3, 2)
+    │   ├─ [205853] Registry::postJob(0x54657374207461736b2064617461, "TEST_TYPE", 5000000 [5e6], 1, 3, 2) [delegatecall]
+    │   │   ├─ emit JobCreated(jobId: 0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb, creator: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::getRecordedLogs()
+    │   └─ ← [Return] [([0x4eaa0b945f525cb10f010e3cb489656e3300452ad3eb9b7f44d6eb60b8ad2d38, 0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb], 0x000000000000000000000000d9aec0335d4000bb841ef89862403e5d331c3e9f, 0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747)]
+    ├─ [0] VM::toString(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb) [staticcall]
+    │   └─ ← [Return] "0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb"
+    ├─ [0] console::log("JobId created:", "0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [932] ERC1967Proxy::doesJobExist(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb) [staticcall]
+    │   ├─ [539] Registry::doesJobExist(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb) [delegatecall]
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [0] console::log("Job exists after creation:", true) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return] 
+    ├─ [0] VM::envUint("OPERATOR_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return] 
+    ├─ [0] VM::toString(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb) [staticcall]
+    │   └─ ← [Return] "0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb"
+    ├─ [0] console::log("Operator submitting claim for jobId:", "0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [1069] ERC1967Proxy::checkLicenseDelegation(1, DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   ├─ [673] DelegationHub::checkLicenseDelegation(1, DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [delegatecall]
+    │   │   └─ ← [Return] false
+    │   └─ ← [Return] false
+    ├─ [0] console::log("Is tokenId delegated to operator:", false) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [932] ERC1967Proxy::doesJobExist(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb) [staticcall]
+    │   ├─ [539] Registry::doesJobExist(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb) [delegatecall]
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [0] console::log("Job exists before claim:", true) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [93804] ERC1967Proxy::postJobResultClaim(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb, [1], 0x5465737420726573756c742064617461)
+    │   ├─ [93381] Registry::postJobResultClaim(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb, [1], 0x5465737420726573756c742064617461) [delegatecall]
+    │   │   ├─ [1344] ERC1967Proxy::checkLicenseDelegation(1, 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [staticcall]
+    │   │   │   ├─ [948] DelegationHub::checkLicenseDelegation(1, 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return] 
+    ├─ [0] VM::envUint("PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return] 
+    ├─ [0] console::log("Registry address:", ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747]) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::recordLogs()
+    │   └─ ← [Return] 
+    ├─ [6594] ERC1967Proxy::postJob(0x54657374207461736b2064617461, "TEST_TYPE", 5000000 [5e6], 1, 3, 2)
+    │   ├─ [6153] Registry::postJob(0x54657374207461736b2064617461, "TEST_TYPE", 5000000 [5e6], 1, 3, 2) [delegatecall]
+    │   │   ├─ emit JobCreated(jobId: 0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb, creator: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f)
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::getRecordedLogs()
+    │   └─ ← [Return] [([0x4eaa0b945f525cb10f010e3cb489656e3300452ad3eb9b7f44d6eb60b8ad2d38, 0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb], 0x000000000000000000000000d9aec0335d4000bb841ef89862403e5d331c3e9f, 0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747)]
+    ├─ [0] VM::toString(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb) [staticcall]
+    │   └─ ← [Return] "0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb"
+    ├─ [0] console::log("JobId created:", "0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [932] ERC1967Proxy::doesJobExist(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb) [staticcall]
+    │   ├─ [539] Registry::doesJobExist(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb) [delegatecall]
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [0] console::log("Job exists after creation:", true) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return] 
+    ├─ [0] VM::envUint("OPERATOR_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return] 
+    ├─ [0] VM::toString(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb) [staticcall]
+    │   └─ ← [Return] "0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb"
+    ├─ [0] console::log("Operator submitting claim for jobId:", "0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [1069] ERC1967Proxy::checkLicenseDelegation(4, DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   ├─ [673] DelegationHub::checkLicenseDelegation(4, DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [delegatecall]
+    │   │   └─ ← [Return] false
+    │   └─ ← [Return] false
+    ├─ [0] console::log("Is tokenId delegated to operator:", false) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [932] ERC1967Proxy::doesJobExist(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb) [staticcall]
+    │   ├─ [539] Registry::doesJobExist(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb) [delegatecall]
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    ├─ [0] console::log("Job exists before claim:", true) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [363527] ERC1967Proxy::postJobResultClaim(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb, [4], 0x5465737420726573756c742064617461)
+    │   ├─ [363104] Registry::postJobResultClaim(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb, [4], 0x5465737420726573756c742064617461) [delegatecall]
+    │   │   ├─ [1344] ERC1967Proxy::checkLicenseDelegation(4, 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [staticcall]
+    │   │   │   ├─ [948] DelegationHub::checkLicenseDelegation(4, 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ emit JobFinished(job: Job({ id: 0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb, creator: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, task: 0x54657374207461736b2064617461, type_: "TEST_TYPE", reward: 5000000 [5e6], nodeVersion: 1, maxResults: 3, minResultsForConsensus: 2, createdAt: 1739312672 [1.739e9], finished: false }), jobResult: JobResult({ id: 0x7970ef9837db94c8b7cce0e0e79e1b00dd5de232278dc27c5f28f1d123d14027, jobId: 0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb, data: 0x5465737420726573756c742064617461, submitterCount: 2 }), totalSubmitterCount: 2)
+    │   │   ├─ [6839] ERC1967Proxy::payRewards(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 5000000 [5e6])
+    │   │   │   ├─ [6446] Treasury::payRewards(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 5000000 [5e6]) [delegatecall]
+    │   │   │   │   ├─ [3678] ERC1967Proxy::transfer(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 5000000 [5e6])
+    │   │   │   │   │   ├─ [3282] MawariToken::transfer(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 5000000 [5e6]) [delegatecall]
+    │   │   │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49], to: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, value: 5000000 [5e6])
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ emit RewardsPaid(recipient: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, amount: 5000000 [5e6])
+    │   │   │   │   └─ ← [Stop] 
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ emit RewardsPaid(recipient: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, amount: 5000000 [5e6])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return] 
+    ├─ [0] VM::envUint("OPERATOR_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return] 
+    ├─ [383966] ERC1967Proxy::heartbeat([1, 4])
+    │   ├─ [383561] Registry::heartbeat([1, 4]) [delegatecall]
+    │   │   ├─ [1344] ERC1967Proxy::checkLicenseDelegation(1, 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [staticcall]
+    │   │   │   ├─ [948] DelegationHub::checkLicenseDelegation(1, 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ emit HeartbeatReceived(heartbeat: Heartbeat({ timeSeconds: 1739312672 [1.739e9], licenseTokenId: 1, operator: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6 }))
+    │   │   ├─ [6839] ERC1967Proxy::payRewards(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 10000000 [1e7])
+    │   │   │   ├─ [6446] Treasury::payRewards(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 10000000 [1e7]) [delegatecall]
+    │   │   │   │   ├─ [3678] ERC1967Proxy::transfer(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 10000000 [1e7])
+    │   │   │   │   │   ├─ [3282] MawariToken::transfer(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 10000000 [1e7]) [delegatecall]
+    │   │   │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49], to: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, value: 10000000 [1e7])
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ emit RewardsPaid(recipient: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, amount: 10000000 [1e7])
+    │   │   │   │   └─ ← [Stop] 
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ emit RewardsPaid(recipient: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, amount: 10000000 [1e7])
+    │   │   ├─ [1344] ERC1967Proxy::checkLicenseDelegation(4, 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [staticcall]
+    │   │   │   ├─ [948] DelegationHub::checkLicenseDelegation(4, 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [delegatecall]
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ emit HeartbeatReceived(heartbeat: Heartbeat({ timeSeconds: 1739312672 [1.739e9], licenseTokenId: 4, operator: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6 }))
+    │   │   ├─ [6839] ERC1967Proxy::payRewards(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 10000000 [1e7])
+    │   │   │   ├─ [6446] Treasury::payRewards(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 10000000 [1e7]) [delegatecall]
+    │   │   │   │   ├─ [3678] ERC1967Proxy::transfer(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 10000000 [1e7])
+    │   │   │   │   │   ├─ [3282] MawariToken::transfer(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 10000000 [1e7]) [delegatecall]
+    │   │   │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49], to: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, value: 10000000 [1e7])
+    │   │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   ├─ emit RewardsPaid(recipient: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, amount: 10000000 [1e7])
+    │   │   │   │   └─ ← [Stop] 
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ emit RewardsPaid(recipient: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, amount: 10000000 [1e7])
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] 
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return] 
+    ├─ [0] console::log("\n================ Deployment Summary ================") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] console::log("MAWARI Token:       ", ERC1967Proxy: [0xbA7E256297e14C059a7BdbbFB2d0A57692632988]) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] console::log("Treasury:           ", ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49]) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] console::log("LicenseNFT:         ", ERC1967Proxy: [0x33674C3C76463E4Ea7400f849d3Ec10587a4f197]) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] console::log("DelegationHub:      ", ERC1967Proxy: [0x4345e015FA64138E25355FE5c05b7c452012f014]) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] console::log("Registry:           ", ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747]) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] console::log("\n================ Configuration =====================") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] console::log("Main Operator:      ", 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] console::log("Backup Operator:    ", 0xCE275FBE87650d8806d131078e6bB07CEE77a917) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] console::log("Standby Operator:   ", 0x5f1Fa64d762c9978167BA1BD3fC460d2561a1074) [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] console::log("Heartbeat Reward:   ", 10, "MAWARI tokens") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] console::log("Initial Operator Rewards: 100, MAWARI tokens") [staticcall]
+    │   └─ ← [Stop] 
+    ├─ [0] console::log("===================================================") [staticcall]
+    │   └─ ← [Stop] 
+    └─ ← [Stop] 
+
+
+Script ran successfully.
+
+== Logs ==
+  License NFT Implementation deployed at: 0x1A27021E82BA5f0457440F84f52e02eB446E27f9
+  License NFT Proxy deployed at: 0x33674C3C76463E4Ea7400f849d3Ec10587a4f197
+  
+=== Creating Delegation Offers ===
+  Created delegation offer to main operator, hash: 0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a
+  Created delegation offer to backup operator, hash: 0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf
+  
+=== Main Operator Accepting Offer ===
+  
+Verifying Incoming Delegations for operator: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6
+  Total incoming delegations: 1
+  Token: 1 From: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f Hash: 0x9ca262c77890c301d0c3918f74dbd81f6c0163387c6e710fa02ce715ba2d5876
+  Main operator accepted delegation offer for token 4
+  Token 4 delegation status to main operator: true
+  
+Verifying Incoming Delegations for operator: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6
+  Total incoming delegations: 2
+  Token: 1 From: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f Hash: 0x9ca262c77890c301d0c3918f74dbd81f6c0163387c6e710fa02ce715ba2d5876
+  Token: 4 From: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f Hash: 0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a
+  
+=== Backup Operator Accepting Offer ===
+  
+Verifying Incoming Delegations for operator: 0xCE275FBE87650d8806d131078e6bB07CEE77a917
+  Total incoming delegations: 1
+  Token: 2 From: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f Hash: 0x28dabbcc3544a70c77f1a5118e9325b2d7dd7584f4e10cc66e60aa102c24d085
+  Backup operator accepted delegation offer for token 5
+  Token 5 delegation status to backup operator: true
+  
+Verifying Incoming Delegations for operator: 0xCE275FBE87650d8806d131078e6bB07CEE77a917
+  Total incoming delegations: 2
+  Token: 2 From: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f Hash: 0x28dabbcc3544a70c77f1a5118e9325b2d7dd7584f4e10cc66e60aa102c24d085
+  Token: 5 From: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f Hash: 0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf
+  
+=== Final Delegation State ===
+  
+Verifying Outgoing Delegations for owner: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+  Total outgoing delegations: 5
+  Token: 1 To: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6 Commission: 10 Enabled: true
+  Token: 2 To: 0xCE275FBE87650d8806d131078e6bB07CEE77a917 Commission: 15 Enabled: true
+  Token: 3 To: 0x5f1Fa64d762c9978167BA1BD3fC460d2561a1074 Commission: 20 Enabled: true
+  Token: 4 To: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6 Commission: 10 Enabled: true
+  Token: 5 To: 0xCE275FBE87650d8806d131078e6bB07CEE77a917 Commission: 15 Enabled: true
+  Registry address: 0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747
+  JobId created: 0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb
+  Job exists after creation: true
+  Operator submitting claim for jobId: 0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb
+  Is tokenId delegated to operator: false
+  Job exists before claim: true
+  Registry address: 0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747
+  JobId created: 0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb
+  Job exists after creation: true
+  Operator submitting claim for jobId: 0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb
+  Is tokenId delegated to operator: false
+  Job exists before claim: true
+  
+================ Deployment Summary ================
+  MAWARI Token:        0xbA7E256297e14C059a7BdbbFB2d0A57692632988
+  Treasury:            0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49
+  LicenseNFT:          0x33674C3C76463E4Ea7400f849d3Ec10587a4f197
+  DelegationHub:       0x4345e015FA64138E25355FE5c05b7c452012f014
+  Registry:            0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747
+  
+================ Configuration =====================
+  Main Operator:       0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6
+  Backup Operator:     0xCE275FBE87650d8806d131078e6bB07CEE77a917
+  Standby Operator:    0x5f1Fa64d762c9978167BA1BD3fC460d2561a1074
+  Heartbeat Reward:    10 MAWARI tokens
+  Initial Operator Rewards: 100, MAWARI tokens
+  ===================================================
+
+## Setting up 1 EVM.
+==========================
+Simulated On-chain Traces:
+
+  [1496314] → new MawariToken@0x17f7c0Ff1E1aa1A03D996875C7988324E3630EaC
+    ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    └─ ← [Return] 7356 bytes of code
+
+  [254051] → new ERC1967Proxy@0xbA7E256297e14C059a7BdbbFB2d0A57692632988
+    ├─ emit Upgraded(implementation: MawariToken: [0x17f7c0Ff1E1aa1A03D996875C7988324E3630EaC])
+    ├─ [191361] MawariToken::initialize("Mawari Token", "MAWARI", 1000000000000 [1e12], 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f) [delegatecall]
+    │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f)
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, value: 1000000000000 [1e12])
+    │   ├─ emit Initialized(version: 1)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 170 bytes of code
+
+  [2003271] → new LicenseNFT@0x1A27021E82BA5f0457440F84f52e02eB446E27f9
+    ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    └─ ← [Return] 9888 bytes of code
+
+  [2616766] → new DelegationHub@0x7F52bE2c42f9438FB38c66662A1c8Dca1EB3Ad79
+    ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    └─ ← [Return] 12952 bytes of code
+
+  [2852664] → new Registry@0x283D459153c27d3B6a2b053CE3322FDe478a0e39
+    ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    └─ ← [Return] 14130 bytes of code
+
+  [2256162] → new Treasury@0x116FAd2AeCfBcE421cE5B28032CEf473C59C364b
+    ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    └─ ← [Return] 11151 bytes of code
+
+  [183023] → new ERC1967Proxy@0x33674C3C76463E4Ea7400f849d3Ec10587a4f197
+    ├─ emit Upgraded(implementation: LicenseNFT: [0x1A27021E82BA5f0457440F84f52e02eB446E27f9])
+    ├─ [120187] LicenseNFT::initialize("Mawari License", "LICENSE", 100000000000000000 [1e17], "") [delegatecall]
+    │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f)
+    │   ├─ emit Initialized(version: 1)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 170 bytes of code
+
+  [135389] → new ERC1967Proxy@0x4345e015FA64138E25355FE5c05b7c452012f014
+    ├─ emit Upgraded(implementation: DelegationHub: [0x7F52bE2c42f9438FB38c66662A1c8Dca1EB3Ad79])
+    ├─ [73577] DelegationHub::initialize(ERC1967Proxy: [0x33674C3C76463E4Ea7400f849d3Ec10587a4f197], 100) [delegatecall]
+    │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f)
+    │   ├─ emit Initialized(version: 1)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 170 bytes of code
+
+  [503435] → new ERC1967Proxy@0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49
+    ├─ emit Upgraded(implementation: Treasury: [0x116FAd2AeCfBcE421cE5B28032CEf473C59C364b])
+    ├─ [438104] Treasury::initialize(ERC1967Proxy: [0xbA7E256297e14C059a7BdbbFB2d0A57692632988], ERC1967Proxy: [0xbA7E256297e14C059a7BdbbFB2d0A57692632988], [UnlockOption({ id: 1, name: "Standard Unlock", description: "Standard operator rewards unlock", cliffSeconds: 0, conversionRatePercentage: 100 }), UnlockOption({ id: 2, name: "Delayed Unlock", description: "Delayed operator rewards with cliff", cliffSeconds: 86400 [8.64e4], conversionRatePercentage: 100 })], 0x0000000000000000000000000000000000000000) [delegatecall]
+    │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f)
+    │   ├─ emit Initialized(version: 1)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 170 bytes of code
+
+  [246815] → new ERC1967Proxy@0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747
+    ├─ emit Upgraded(implementation: Registry: [0x283D459153c27d3B6a2b053CE3322FDe478a0e39])
+    ├─ [184418] Registry::initialize(ERC1967Proxy: [0x4345e015FA64138E25355FE5c05b7c452012f014], ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49], ERC1967Proxy: [0x33674C3C76463E4Ea7400f849d3Ec10587a4f197], 3600, 10000000 [1e7], 24) [delegatecall]
+    │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f)
+    │   ├─ emit Initialized(version: 1)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 170 bytes of code
+
+  [29640] ERC1967Proxy::setRegistryContract(ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747])
+    ├─ [24750] Treasury::setRegistryContract(ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747]) [delegatecall]
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [64425] ERC1967Proxy::approveSourceTokenSpender(ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747])
+    ├─ [59535] Treasury::approveSourceTokenSpender(ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747]) [delegatecall]
+    │   ├─ [29703] ERC1967Proxy::approve(ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747], 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77])
+    │   │   ├─ [24807] MawariToken::approve(ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747], 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77]) [delegatecall]
+    │   │   │   ├─ emit Approval(owner: ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49], spender: ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747], value: 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77])
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Return] true
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [34878] ERC1967Proxy::transfer(ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49], 500000000000 [5e11])
+    ├─ [29982] MawariToken::transfer(ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49], 500000000000 [5e11]) [delegatecall]
+    │   ├─ emit Transfer(from: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, to: ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49], value: 500000000000 [5e11])
+    │   └─ ← [Return] true
+    └─ ← [Return] true
+
+  [36511] ERC1967Proxy::setUnlockOption(1, "Instant Rewards", "Immediate operator rewards", 0, 100, true)
+    ├─ [31570] Treasury::setUnlockOption(1, "Instant Rewards", "Immediate operator rewards", 0, 100, true) [delegatecall]
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [44038] ERC1967Proxy::setUnlockOption(2, "Bonus Rewards", "Delayed rewards with bonus", 86400 [8.64e4], 100, true)
+    ├─ [39097] Treasury::setUnlockOption(2, "Bonus Rewards", "Delayed rewards with bonus", 86400 [8.64e4], 100, true) [delegatecall]
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [9740] ERC1967Proxy::setRegistryContract(ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747])
+    ├─ [4850] Treasury::setRegistryContract(ERC1967Proxy: [0x1db0Be296D26E682Cb890b9F9aB98A63d85A9747]) [delegatecall]
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [47507] ERC1967Proxy::transferSourceTokensTo(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 100000000 [1e8])
+    ├─ [42614] Treasury::transferSourceTokensTo(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 100000000 [1e8]) [delegatecall]
+    │   ├─ [34878] ERC1967Proxy::transfer(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 100000000 [1e8])
+    │   │   ├─ [29982] MawariToken::transfer(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 100000000 [1e8]) [delegatecall]
+    │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49], to: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, value: 100000000 [1e8])
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Return] true
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [167516] ERC1967Proxy::setOperatorConfig(true, "Main Operator", 10)
+    ├─ [162605] DelegationHub::setOperatorConfig(true, "Main Operator", 10) [delegatecall]
+    │   ├─ emit OperatorConfigured(operator: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, name: "Main Operator", commissionPercentage: 10)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [150416] ERC1967Proxy::setOperatorConfig(true, "Backup Operator", 15)
+    ├─ [145505] DelegationHub::setOperatorConfig(true, "Backup Operator", 15) [delegatecall]
+    │   ├─ emit OperatorConfigured(operator: 0xCE275FBE87650d8806d131078e6bB07CEE77a917, name: "Backup Operator", commissionPercentage: 15)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [150416] ERC1967Proxy::setOperatorConfig(true, "Standby Operator", 20)
+    ├─ [145505] DelegationHub::setOperatorConfig(true, "Standby Operator", 20) [delegatecall]
+    │   ├─ emit OperatorConfigured(operator: 0x5f1Fa64d762c9978167BA1BD3fC460d2561a1074, name: "Standby Operator", commissionPercentage: 20)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [110266] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [105379] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 0)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 0)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 1)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 1)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 2)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 2)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 3)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 3)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 4)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 4)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 5)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 5)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 6)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 6)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 7)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 7)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 8)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 8)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 9)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 9)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 10)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 10)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 11)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 11)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 12)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 12)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 13)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 13)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 14)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 14)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 15)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 15)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 16)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 16)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 17)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 17)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 18)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 18)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [138566] ERC1967Proxy::mint{value: 100000000000000000}()
+    ├─ [133679] LicenseNFT::mint{value: 100000000000000000}() [delegatecall]
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 19)
+    │   ├─ emit NFTMinted(to: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 19)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [271660] ERC1967Proxy::delegate(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 1)
+    ├─ [266767] DelegationHub::delegate(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 1) [delegatecall]
+    │   ├─ [7573] ERC1967Proxy::ownerOf(1) [staticcall]
+    │   │   ├─ [2680] LicenseNFT::ownerOf(1) [delegatecall]
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   ├─ emit DelegationCreated(delegation: Delegation({ hash: 0x9ca262c77890c301d0c3918f74dbd81f6c0163387c6e710fa02ce715ba2d5876, to: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, tokenId: 1, commissionPercentage: 10, enabled: true }))
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [254560] ERC1967Proxy::delegate(0xCE275FBE87650d8806d131078e6bB07CEE77a917, 2)
+    ├─ [249667] DelegationHub::delegate(0xCE275FBE87650d8806d131078e6bB07CEE77a917, 2) [delegatecall]
+    │   ├─ [7573] ERC1967Proxy::ownerOf(2) [staticcall]
+    │   │   ├─ [2680] LicenseNFT::ownerOf(2) [delegatecall]
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   ├─ emit DelegationCreated(delegation: Delegation({ hash: 0x28dabbcc3544a70c77f1a5118e9325b2d7dd7584f4e10cc66e60aa102c24d085, to: 0xCE275FBE87650d8806d131078e6bB07CEE77a917, tokenId: 2, commissionPercentage: 15, enabled: true }))
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [254560] ERC1967Proxy::delegate(0x5f1Fa64d762c9978167BA1BD3fC460d2561a1074, 3)
+    ├─ [249667] DelegationHub::delegate(0x5f1Fa64d762c9978167BA1BD3fC460d2561a1074, 3) [delegatecall]
+    │   ├─ [7573] ERC1967Proxy::ownerOf(3) [staticcall]
+    │   │   ├─ [2680] LicenseNFT::ownerOf(3) [delegatecall]
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   ├─ emit DelegationCreated(delegation: Delegation({ hash: 0x8bb472c2873ce3f575611fdcf264387ed6adaadfe756da83a13f09025333e656, to: 0x5f1Fa64d762c9978167BA1BD3fC460d2561a1074, tokenId: 3, commissionPercentage: 20, enabled: true }))
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [269329] ERC1967Proxy::offerDelegation(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 4, 10, true)
+    ├─ [264421] DelegationHub::offerDelegation(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 4, 10, true) [delegatecall]
+    │   ├─ [7573] ERC1967Proxy::ownerOf(4) [staticcall]
+    │   │   ├─ [2680] LicenseNFT::ownerOf(4) [delegatecall]
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   ├─ emit DelegationOfferCreated(offer: DelegationOffer({ hash: 0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a, to: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, from: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 4, commissionPercentage: 10, enabled: true }))
+    │   └─ ← [Return] 0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a
+    └─ ← [Return] 0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a
+
+  [252229] ERC1967Proxy::offerDelegation(0xCE275FBE87650d8806d131078e6bB07CEE77a917, 5, 15, true)
+    ├─ [247321] DelegationHub::offerDelegation(0xCE275FBE87650d8806d131078e6bB07CEE77a917, 5, 15, true) [delegatecall]
+    │   ├─ [7573] ERC1967Proxy::ownerOf(5) [staticcall]
+    │   │   ├─ [2680] LicenseNFT::ownerOf(5) [delegatecall]
+    │   │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   │   └─ ← [Return] 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f
+    │   ├─ emit DelegationOfferCreated(offer: DelegationOffer({ hash: 0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf, to: 0xCE275FBE87650d8806d131078e6bB07CEE77a917, from: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, tokenId: 5, commissionPercentage: 15, enabled: true }))
+    │   └─ ← [Return] 0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf
+    └─ ← [Return] 0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf
+
+  [234172] ERC1967Proxy::acceptDelegationOffer(0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a)
+    ├─ [229282] DelegationHub::acceptDelegationOffer(0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a) [delegatecall]
+    │   ├─ emit DelegationCreated(delegation: Delegation({ hash: 0x3f4973f986a0245b0cbb2049cb7ca992516051dbb959973238f78680ccddfc0a, to: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, tokenId: 4, commissionPercentage: 10, enabled: true }))
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [234172] ERC1967Proxy::acceptDelegationOffer(0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf)
+    ├─ [229282] DelegationHub::acceptDelegationOffer(0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf) [delegatecall]
+    │   ├─ emit DelegationCreated(delegation: Delegation({ hash: 0x8253d4f2cedad4bd70e70134abae354a1c67ba4ef349eb9306482b615f2daccf, to: 0xCE275FBE87650d8806d131078e6bB07CEE77a917, tokenId: 5, commissionPercentage: 15, enabled: true }))
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [212794] ERC1967Proxy::postJob(0x54657374207461736b2064617461, "TEST_TYPE", 5000000 [5e6], 1, 3, 2)
+    ├─ [207853] Registry::postJob(0x54657374207461736b2064617461, "TEST_TYPE", 5000000 [5e6], 1, 3, 2) [delegatecall]
+    │   ├─ emit JobCreated(jobId: 0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb, creator: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [117304] ERC1967Proxy::postJobResultClaim(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb, [1], 0x5465737420726573756c742064617461)
+    ├─ [112381] Registry::postJobResultClaim(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb, [1], 0x5465737420726573756c742064617461) [delegatecall]
+    │   ├─ [9844] ERC1967Proxy::checkLicenseDelegation(1, 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [staticcall]
+    │   │   ├─ [4948] DelegationHub::checkLicenseDelegation(1, 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [delegatecall]
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Return] true
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [33694] ERC1967Proxy::postJob(0x54657374207461736b2064617461, "TEST_TYPE", 5000000 [5e6], 1, 3, 2)
+    ├─ [28753] Registry::postJob(0x54657374207461736b2064617461, "TEST_TYPE", 5000000 [5e6], 1, 3, 2) [delegatecall]
+    │   ├─ emit JobCreated(jobId: 0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb, creator: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f)
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [470627] ERC1967Proxy::postJobResultClaim(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb, [4], 0x5465737420726573756c742064617461)
+    ├─ [465704] Registry::postJobResultClaim(0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb, [4], 0x5465737420726573756c742064617461) [delegatecall]
+    │   ├─ [9844] ERC1967Proxy::checkLicenseDelegation(4, 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [staticcall]
+    │   │   ├─ [4948] DelegationHub::checkLicenseDelegation(4, 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [delegatecall]
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Return] true
+    │   ├─ emit JobFinished(job: Job({ id: 0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb, creator: 0xd9AEc0335d4000BB841Ef89862403E5D331C3e9f, task: 0x54657374207461736b2064617461, type_: "TEST_TYPE", reward: 5000000 [5e6], nodeVersion: 1, maxResults: 3, minResultsForConsensus: 2, createdAt: 1739312672 [1.739e9], finished: false }), jobResult: JobResult({ id: 0x7970ef9837db94c8b7cce0e0e79e1b00dd5de232278dc27c5f28f1d123d14027, jobId: 0x97676fb17e4e71e4adb0155c4c1f54e6c0de1ce1face1235e0705ed9320753bb, data: 0x5465737420726573756c742064617461, submitterCount: 2 }), totalSubmitterCount: 2)
+    │   ├─ [33939] ERC1967Proxy::payRewards(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 5000000 [5e6])
+    │   │   ├─ [29046] Treasury::payRewards(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 5000000 [5e6]) [delegatecall]
+    │   │   │   ├─ [17778] ERC1967Proxy::transfer(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 5000000 [5e6])
+    │   │   │   │   ├─ [12882] MawariToken::transfer(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 5000000 [5e6]) [delegatecall]
+    │   │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49], to: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, value: 5000000 [5e6])
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   ├─ emit RewardsPaid(recipient: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, amount: 5000000 [5e6])
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit RewardsPaid(recipient: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, amount: 5000000 [5e6])
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+  [445066] ERC1967Proxy::heartbeat([1, 4])
+    ├─ [440161] Registry::heartbeat([1, 4]) [delegatecall]
+    │   ├─ [9844] ERC1967Proxy::checkLicenseDelegation(1, 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [staticcall]
+    │   │   ├─ [4948] DelegationHub::checkLicenseDelegation(1, 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [delegatecall]
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Return] true
+    │   ├─ emit HeartbeatReceived(heartbeat: Heartbeat({ timeSeconds: 1739312672 [1.739e9], licenseTokenId: 1, operator: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6 }))
+    │   ├─ [33939] ERC1967Proxy::payRewards(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 10000000 [1e7])
+    │   │   ├─ [29046] Treasury::payRewards(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 10000000 [1e7]) [delegatecall]
+    │   │   │   ├─ [17778] ERC1967Proxy::transfer(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 10000000 [1e7])
+    │   │   │   │   ├─ [12882] MawariToken::transfer(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 10000000 [1e7]) [delegatecall]
+    │   │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49], to: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, value: 10000000 [1e7])
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   ├─ emit RewardsPaid(recipient: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, amount: 10000000 [1e7])
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit RewardsPaid(recipient: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, amount: 10000000 [1e7])
+    │   ├─ [5344] ERC1967Proxy::checkLicenseDelegation(4, 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [staticcall]
+    │   │   ├─ [4948] DelegationHub::checkLicenseDelegation(4, 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6) [delegatecall]
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Return] true
+    │   ├─ emit HeartbeatReceived(heartbeat: Heartbeat({ timeSeconds: 1739312672 [1.739e9], licenseTokenId: 4, operator: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6 }))
+    │   ├─ [6839] ERC1967Proxy::payRewards(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 10000000 [1e7])
+    │   │   ├─ [6446] Treasury::payRewards(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 10000000 [1e7]) [delegatecall]
+    │   │   │   ├─ [3678] ERC1967Proxy::transfer(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 10000000 [1e7])
+    │   │   │   │   ├─ [3282] MawariToken::transfer(0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, 10000000 [1e7]) [delegatecall]
+    │   │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x1cED98c68a14D5D76768C55Aecf71fED62AF5f49], to: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, value: 10000000 [1e7])
+    │   │   │   │   │   └─ ← [Return] true
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   ├─ emit RewardsPaid(recipient: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, amount: 10000000 [1e7])
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 
+    │   ├─ emit RewardsPaid(recipient: 0x074C104C9B7e8deB4b4f7C8F9Fa41ebF940f56B6, amount: 10000000 [1e7])
+    │   └─ ← [Stop] 
+    └─ ← [Return] 
+
+
+==========================
+
+Chain 629274
+
+Estimated gas price: 0.020000001 gwei
+
+Estimated total gas used for script: 28549622
+
+Estimated amount required: 0.000570992468549622 ETH
+
+==========================
+
+Transactions saved to: /Users/jay/Documents/delegateContract/broadcast/DeployContracts.s.sol/629274/run-latest.json
+
+Sensitive values saved to: /Users/jay/Documents/delegateContract/cache/DeployContracts.s.sol/629274/run-latest.json
+
