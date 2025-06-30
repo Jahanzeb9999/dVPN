@@ -99,3 +99,4 @@ type NodeStatus struct {
 	Uptime         time.Duration    `json:"uptime"`
 	Peers          map[string]*Peer `json:"peers"`
 }
+ 

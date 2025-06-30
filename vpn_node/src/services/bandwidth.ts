@@ -33,6 +33,8 @@ export class BandwidthTracker {
     console.log('Bandwidth tracking started');
   }
 
+
+
   /**
    * Stop bandwidth tracking
    */

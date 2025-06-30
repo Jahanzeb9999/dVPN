@@ -47,17 +47,17 @@ export class WireGuardManager {
     // Detect platform
     const isMac = process.platform === 'darwin';
     let config = `[Interface]
-PrivateKey = ${this.privateKey}
-Address = 10.0.0.1/24
-ListenPort = ${this.port}
-SaveConfig = true
-`;
-    if (!isMac) {
-      config += `
-# Enable IP forwarding
-PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
-`;
+      PrivateKey = ${this.privateKey}
+      Address = 10.0.0.1/24
+      ListenPort = ${this.port}
+      SaveConfig = true
+      `;
+          if (!isMac) {
+            config += `
+      # Enable IP forwarding
+      PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+      PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+      `;
     }
 
     try {
@@ -94,7 +94,25 @@ PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -
    */
   async addPeer(peer: WireGuardPeer): Promise<void> {
     try {
-      let command = `sudo wg set ${this.interface} peer ${peer.publicKey} allowed-ips ${peer.allowedIPs}`;
+      // On macOS, we need to use the actual interface name (utun6) instead of the config name (wg0)
+      const isMac = process.platform === 'darwin';
+      let interfaceName = this.interface;
+      
+      if (isMac) {
+        // Try to find the actual utun interface name
+        try {
+          const result = await execAsync('sudo wg show interfaces');
+          const interfaces = result.stdout.trim().split('\n');
+          if (interfaces.length > 0) {
+            interfaceName = interfaces[0].trim(); // Use the first interface found
+          }
+
+        } catch (error) {
+          throw new Error(`Failed to find WireGuard interface: ${error}`);
+        }
+      }
+
+      let command = `sudo wg set ${interfaceName} peer ${peer.publicKey} allowed-ips ${peer.allowedIPs}`;
       if (peer.endpoint) {
         command += ` endpoint ${peer.endpoint}`;
       }
@@ -113,7 +131,24 @@ PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -
    */
   async removePeer(publicKey: string): Promise<void> {
     try {
-      await execAsync(`sudo wg set ${this.interface} peer ${publicKey} remove`);
+      // On macOS, we need to use the actual interface name (utun6) instead of the config name (wg0)
+      const isMac = process.platform === 'darwin';
+      let interfaceName = this.interface;
+      
+      if (isMac) {
+        // Try to find the actual utun interface name
+        try {
+          const result = await execAsync('sudo wg show interfaces');
+          const interfaces = result.stdout.trim().split('\n');
+          if (interfaces.length > 0) {
+            interfaceName = interfaces[0].trim(); // Use the first interface found
+          }
+        } catch (error) {
+          throw new Error(`Failed to find WireGuard interface: ${error}`);
+        }
+      }
+
+      await execAsync(`sudo wg set ${interfaceName} peer ${publicKey} remove`);
     } catch (error) {
       throw new Error(`Failed to remove peer: ${error}`);
     }
@@ -171,7 +206,27 @@ PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -
    */
   async getInterfaceStatus(): Promise<{ isUp: boolean; peers: number }> {
     try {
-      const result = await execAsync(`sudo wg show ${this.interface} dump`);
+      // On macOS, we need to use the actual interface name (utun6) instead of the config name (wg0)
+      const isMac = process.platform === 'darwin';
+      let interfaceName = this.interface;
+      
+      if (isMac) {
+        // Try to find the actual utun interface name
+        try {
+          const result = await execAsync('sudo wg show interfaces');
+          const interfaces = result.stdout.trim().split('\n');
+          if (interfaces.length > 0) {
+            interfaceName = interfaces[0].trim(); // Use the first interface found
+          }
+        } catch (error) {
+          return {
+            isUp: false,
+            peers: 0
+          };
+        }
+      }
+
+      const result = await execAsync(`sudo wg show ${interfaceName} dump`);
       const lines = result.stdout.trim().split('\n');
       
       // First line contains interface info, subsequent lines are peers

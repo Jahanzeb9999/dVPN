@@ -13,6 +13,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
+	"github.com/rs/cors"
 	"github.com/sirupsen/logrus"
 )
 
@@ -480,6 +481,7 @@ func (s *Server) handleWebSocket(c *gin.Context) {
 				Type: "pong",
 			})
 		}
+
 	}
 
 	// Remove connection from the pool

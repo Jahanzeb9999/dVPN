@@ -319,6 +319,7 @@ export class VPNApiServer {
       }
     });
 
+
     this.app.post('/blockchain/unregister', async (req: Request, res: Response) => {
       try {
         await this.blockchain.unregisterNode();
